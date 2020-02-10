@@ -53,7 +53,7 @@ func resourceGitlabProjectVariable() *schema.Resource {
 			"environment_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
-				Default:  false,
+				Default:  "*",
 			},
 		},
 	}
@@ -85,7 +85,7 @@ func resourceGitlabProjectVariableCreate(d *schema.ResourceData, meta interface{
 		return err
 	}
 
-	d.SetId(buildTwoPartID(&project, &key))
+	d.SetId(buildThreePartID(&project, &key, &environmentScope))
 
 	return resourceGitlabProjectVariableRead(d, meta)
 }
@@ -93,14 +93,14 @@ func resourceGitlabProjectVariableCreate(d *schema.ResourceData, meta interface{
 func resourceGitlabProjectVariableRead(d *schema.ResourceData, meta interface{}) error {
 	client := meta.(*gitlab.Client)
 
-	project, key, err := parseTwoPartID(d.Id())
+	project, key, environmentScope, err := parseThreePartID(d.Id())
 	if err != nil {
 		return err
 	}
 
 	log.Printf("[DEBUG] read gitlab project variable %s/%s", project, key)
 
-	v, _, err := client.ProjectVariables.GetVariable(project, key)
+	v, _, err := client.ProjectVariables.GetVariableWithEnvironmentScope(project, key, environmentScope)
 	if err != nil {
 		return err
 	}
@@ -150,8 +150,9 @@ func resourceGitlabProjectVariableDelete(d *schema.ResourceData, meta interface{
 	client := meta.(*gitlab.Client)
 	project := d.Get("project").(string)
 	key := d.Get("key").(string)
+	environmentScope := d.Get("environment_scope").(string)
 	log.Printf("[DEBUG] Delete gitlab project variable %s/%s", project, key)
 
-	_, err := client.ProjectVariables.RemoveVariable(project, key)
+	_, err := client.ProjectVariables.RemoveVariableWithEnvironmentScope(project, key, environmentScope)
 	return err
 }

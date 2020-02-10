@@ -31,4 +31,6 @@ require (
 	google.golang.org/grpc v1.25.1 // indirect
 )
 
+replace github.com/xanzy/go-gitlab => github.com/remil1000/go-gitlab v0.24.1-0.20200210163457-1d74967c1090
+
 go 1.13
