@@ -201,6 +201,8 @@ github.com/remil1000/go-gitlab v0.22.3/go.mod h1:t4Bmvnxj7k37S4Y17lfLx+nLqkf/oQw
 github.com/remil1000/go-gitlab v0.24.0/go.mod h1:t4Bmvnxj7k37S4Y17lfLx+nLqkf/oQwT2HagfWKv5Og=
 github.com/remil1000/go-gitlab v0.24.1-0.20200210163457-1d74967c1090 h1:lx6zTS+cjslTLk/Sgfd+S1cN58Eg2AW0pwoIeagngoo=
 github.com/remil1000/go-gitlab v0.24.1-0.20200210163457-1d74967c1090/go.mod h1:t4Bmvnxj7k37S4Y17lfLx+nLqkf/oQwT2HagfWKv5Og=
+github.com/remil1000/go-gitlab v0.24.1-0.20200805095915-5df287b94423 h1:DYptZv4i48aDjMco/PWUwMh1kazT4wWKVWNqSHw00F4=
+github.com/remil1000/go-gitlab v0.24.1-0.20200805095915-5df287b94423/go.mod h1:t4Bmvnxj7k37S4Y17lfLx+nLqkf/oQwT2HagfWKv5Og=
 github.com/rogpeppe/go-internal v1.3.0/go.mod h1:M8bDsm7K2OlrFYOpmOWEs/qY81heoFRclV5y23lUDJ4=
 github.com/sergi/go-diff v1.0.0 h1:Kpca3qRNrduNnOQeazBd0ysaKrUJiIuISHxogkT9RPQ=
 github.com/sergi/go-diff v1.0.0/go.mod h1:0CfEIISq7TuYL3j771MWULgwwjU+GofnZX9QAmXWZgo=
